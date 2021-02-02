@@ -82,3 +82,26 @@ jobs:
           token: ${{ secrets.SURGE_TOKEN }}
     outputs:
       job-status: ${{ job.status }}
+
+
+  notification_job:
+    name: notification_job
+    runs-on: ubuntu-latest
+
+    needs: [syntax_check_job, test_execution_job, build_statics_job, deploy_job]
+
+    if: ${{ always() }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Email
+        uses: ./.github/actions/email_action
+        with:
+          author_email: ${{ secrets.AUTHOR_EMAIL }}
+          send_email: ${{ secrets.SEND_EMAIL }}
+          send_pass: ${{ secrets.SEND_PASS }}
+          syntax_check_job: ${{needs.syntax_check_job.outputs.job-status}}
+          test_execution_job: ${{needs.test_execution_job.outputs.job-status}}
+          build_statics_job: ${{needs.build_statics_job.outputs.job-status}}
+          deploy_job: ${{needs.deploy_job.outputs.job-status}}

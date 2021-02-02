@@ -1,0 +1,39 @@
+name: "Send Notification"
+description: "Sends message through GMAIL"
+
+inputs:
+  author_email:
+    description: "Email Author"
+    required: true
+
+  send_email:
+    description: "Sender Email"
+    required: true
+
+  send_pass:
+    description: "Sender Password"
+    required: true
+
+  syntax_check_job:
+    description: "syntax_check_job"
+    required: true
+
+  test_execution_job:
+    description: "test_execution_job"
+    required: true
+
+  build_statics_job:
+    description: "build_statics_job"
+    required: true
+
+  deploy_job:
+    description: "deploy_job"
+    required: true
+
+outputs:
+  message:
+    description: "Message"
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
