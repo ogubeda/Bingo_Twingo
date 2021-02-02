@@ -4,4 +4,5 @@ Backend with node, express and socket.io
 ORIGINAL:
 https://github.com/vicnx/bingo_twingo
 
-Ultima versión desplegada el día: Sun Jan 31 16:31:53 UTC 2021
+
+  Ultima versión desplegada el día --> Tue Feb  2 14:41:48 UTC 2021
