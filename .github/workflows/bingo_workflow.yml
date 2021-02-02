@@ -122,8 +122,8 @@ jobs:
 
       - name: Push  to repository
         run: |
-          git config user.name ${{ secrets.GIT_USER }}
-          git config user.email ${{ secrets.GIT_USER_EMAIL }}
+          git config user.name ogubeda
+          git config user.email og.ubeda@gmail.com
           git add .
           git commit -m "Readme update"
           git push origin master
